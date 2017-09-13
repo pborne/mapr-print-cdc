@@ -55,12 +55,12 @@ public class PrintCDC {
            ChangeNode changeNode = changeNodeEntry.getValue();
            String documentId = changeDataRecord.getId().getString();
 
-           if (changeDataRecord.getType() == ChangeDataRecordType.RECORD_INSERT) {
-             System.out.println("Document Inserted " + documentId);
-           } else if (changeDataRecord.getType() == ChangeDataRecordType.RECORD_UPDATE) {
-             System.out.println("Document Updated " + documentId + "  FieldPath: '" + fieldPathAsString + "'");
-           } else if (changeDataRecord.getType() == ChangeDataRecordType.RECORD_DELETE) {
-             System.out.println("Document Deleted " + documentId);
+           System.out.print(changeDataRecord.getType().name() + ": _id='" + documentId + "'");
+           if (changeDataRecord.getType() == ChangeDataRecordType.RECORD_UPDATE) {
+             System.out.print("  FieldPath: '" + fieldPathAsString + "'");
+             System.out.print("  ChangeOp: " + changeNode.getOp().name());
+             System.out.print("  FieldType: " +  changeNode.getType().name());
+             System.out.println("  Value: " +  changeNode.getValue());
            }
         }
         System.out.println("---");
