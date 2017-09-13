@@ -61,7 +61,8 @@ public class PrintCDC {
              System.out.print("  ChangeOp: " + changeNode.getOp().name());
              System.out.print("  FieldType: " +  changeNode.getType().name());
              System.out.println("  Value: " +  changeNode.getValue());
-           }
+           } else {
+           } System.out.println();
         }
         System.out.println("---");
       }
